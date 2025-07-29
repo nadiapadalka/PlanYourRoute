@@ -1,15 +1,14 @@
 //
-//  ContentView.swift
+//  Untitled.swift
 //  PlanYourRoute
 //
-//  Created by Nadiia Padalka on 25.07.2025.
+//  Created by Nadiia Padalka on 29.07.2025.
 //
 
 import SwiftUI
 import MapKit
-import CoreData
 
-struct ContentView: View {
+struct HomeView: View {
     let locationManager = CLLocationManager()
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback:.automatic)
     var body: some View {
@@ -23,7 +22,11 @@ struct ContentView: View {
         }
     }
 }
-#Preview {
-    ContentView()
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
 }
+
  
