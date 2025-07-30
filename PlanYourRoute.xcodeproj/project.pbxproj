@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F512DD72E38A4E10069E87B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F512DD62E38A4E10069E87B /* GoogleService-Info.plist */; };
 		7F512DDB2E38B10F0069E87B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F512DDA2E38B10F0069E87B /* FirebaseCore */; };
+		7F512DFD2E3916B60069E87B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F512DFC2E3916B60069E87B /* FirebaseAuth */; };
+		7F512DFF2E39202E0069E87B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F512DFE2E39202E0069E87B /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F512DD62E38A4E10069E87B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7FE3663F2E3352F600C71644 /* PlanYourRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanYourRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE366552E3352F700C71644 /* PlanYourRouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanYourRouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FE3665F2E3352F700C71644 /* PlanYourRouteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanYourRouteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +61,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F512DDB2E38B10F0069E87B /* FirebaseCore in Frameworks */,
+				7F512DFD2E3916B60069E87B /* FirebaseAuth in Frameworks */,
+				7F512DFF2E39202E0069E87B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +98,7 @@
 				7FE366622E3352F700C71644 /* PlanYourRouteUITests */,
 				7F512DD92E38B10F0069E87B /* Frameworks */,
 				7FE366402E3352F600C71644 /* Products */,
+				7F512DD62E38A4E10069E87B /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +133,8 @@
 			name = PlanYourRoute;
 			packageProductDependencies = (
 				7F512DDA2E38B10F0069E87B /* FirebaseCore */,
+				7F512DFC2E3916B60069E87B /* FirebaseAuth */,
+				7F512DFE2E39202E0069E87B /* FirebaseFirestore */,
 			);
 			productName = PlanYourRoute;
 			productReference = 7FE3663F2E3352F600C71644 /* PlanYourRoute.app */;
@@ -229,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F512DD72E38A4E10069E87B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +435,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
@@ -437,7 +447,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -465,7 +475,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
@@ -477,7 +487,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -629,6 +639,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F512DD82E38AF3B0069E87B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		7F512DFC2E3916B60069E87B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F512DD82E38AF3B0069E87B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7F512DFE2E39202E0069E87B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F512DD82E38AF3B0069E87B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
