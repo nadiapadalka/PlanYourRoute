@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    /*extending the environment object to access the current user*/
     @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
@@ -34,6 +35,8 @@ struct ProfileView: View {
                     }
                 }
             }
+
+            //general section
             Section("General"){
                 HStack{
                     SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
@@ -43,22 +46,30 @@ struct ProfileView: View {
                         .foregroundColor(.gray)
                 }
             }
+
+            // account section
             Section("Account"){
                 Button{
                     viewModel.signOut()
                     print("Signing out...")
-                } label: {
-                    SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tintColor: Color(.red))
+                }
+                label: {
+                    SettingsRowView(
+                        imageName: "arrow.left.circle.fill",
+                        title: "Sign Out",
+                        tintColor: Color(.red))
                 }
                 
                 Button{
-                    print("Deleteing accout...")
-                } label: {
-                    SettingsRowView(imageName: "x.circle.fill", title: "Delete Accout", tintColor: Color(.red))
+                    print("Deleting account...")
+                }
+                label: {
+                    SettingsRowView(
+                        imageName: "x.circle.fill",
+                        title: "Delete Accout",
+                        tintColor: Color(.red))
                 }
             }
-                
-                    
             }
         }
     }

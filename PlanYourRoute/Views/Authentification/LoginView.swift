@@ -19,22 +19,21 @@ struct LoginView: View {
                     text: $email,
                     title: "Email Address",
                     placeholder: "name@example.com")
-                .autocorrectionDisabled(true)
-    
+                //prevent autocapitalization
+                .textInputAutocapitalization(.never)
                 InputView(
                     text: $password,
                     title: "Password",
                     placeholder: "Enter your password",
                     isSecureField: true)
                 
-                //sign in button
-                // sign up button
             }
             .padding(.horizontal)
             .padding(.top, 250)
             
             Button{
                 print("Log user in")
+                //checking if such user exists, and signing him in
                 Task{
                     try await viewModel.signIn(withEmail: email, password: password)
                 }

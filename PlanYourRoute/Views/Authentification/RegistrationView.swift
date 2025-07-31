@@ -13,20 +13,31 @@ struct RegistrationView: View {
     @State var fullName: String = ""
     @State var confirmPassword: String = ""
     @EnvironmentObject var viewModel: AuthViewModel
+    //logic for backing in navigation stack
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack(spacing: 24){
-            InputView(text: $email, title: "Email Address", placeholder: "name@example.com")
-            InputView(text: $fullName,
-                      title: "Full Name",
-                      placeholder: "Enter your name")
-            InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
+            InputView(
+                text: $email,
+                title: "Email Address",
+                placeholder: "name@example.com")
+            InputView(
+                text: $fullName,
+                title: "Full Name",
+                placeholder: "Enter your name")
+            InputView(
+                text: $password,
+                title: "Password",
+                placeholder: "Enter your password",
+                isSecureField: true)
             ZStack(alignment: .trailing) {
-                InputView(text: $confirmPassword,
-                          title: "Confirm Password",
-                          placeholder: "Confirm your password",
-                          isSecureField: true)
+                InputView(
+                    text: $confirmPassword,
+                    title: "Confirm Password",
+                    placeholder: "Confirm your password",
+                    isSecureField: true)
+                //ui results when validating confirmPassword field
                 if !password.isEmpty && !confirmPassword.isEmpty {
                     if password == confirmPassword {
                         Image(systemName: "checkmark.circle.fill")
@@ -49,7 +60,10 @@ struct RegistrationView: View {
         Button{
             print("Sign user up...")
             Task {
-                try? await viewModel.createUser(withEmail: email, password: password, fullName: fullName)
+                try? await viewModel.createUser(
+                    withEmail: email,
+                    password: password,
+                    fullName: fullName)
             }
         } label: {
             HStack{
@@ -68,7 +82,7 @@ struct RegistrationView: View {
         .opacity(formIsValid ? 1 : 0.5)
         .cornerRadius(10)
         .padding(.top, 24)
-
+        //space between components
         Spacer()
 
         Button{
@@ -83,7 +97,8 @@ struct RegistrationView: View {
             }
         }
     }
-    
+
+//validation protocol
 extension RegistrationView: AuthentificationFormProtocol{
     var formIsValid: Bool{
         return !email.isEmpty

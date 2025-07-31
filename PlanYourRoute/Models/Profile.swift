@@ -10,7 +10,7 @@ struct User: Identifiable, Codable {
     let id: String
     let fullname: String
     let email: String
-    
+    //format name as an initials
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
         if let components = formatter.personNameComponents(from: fullname) {

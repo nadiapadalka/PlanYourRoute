@@ -14,6 +14,7 @@ struct ContentView: View {
 
     var body: some View {
         Group{
+            //showing profile data, if the user is already signed in
             if viewModel.userSession != nil {
                 ProfileView()
             }

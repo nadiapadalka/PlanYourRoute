@@ -32,7 +32,7 @@ class AuthViewModel: ObservableObject {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             self.userSession = result.user
             await fetchUser()
-            print("sign in...")
+            print("Signing user in...")
         }
         catch{
             print("DEBUG: failed to sign in \(error)")
@@ -46,6 +46,7 @@ class AuthViewModel: ObservableObject {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
             let user = User(id: result.user.uid, fullname: fullName, email: email)
+            //encode user data to p[arse in the database
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
@@ -60,24 +61,23 @@ class AuthViewModel: ObservableObject {
             try Auth.auth().signOut()
             self.userSession = nil
             self.currentUser = nil
-        } catch {
+        }
+        catch {
             print("DEBUG: failed to sign out \(error)")
         }
     }
     func deleteAccount() {
         do {
-            try Auth.auth().currentUser?.delete()
+            Auth.auth().currentUser?.delete()
             self.userSession = nil
             self.currentUser = nil
-        } catch {
-            print("DEBUG: failed to delete account \(error)")
         }
         
     }
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        //getting user from the database via uid
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
         self.currentUser = try? snapshot.data(as: User.self)
-        
     }
 }
